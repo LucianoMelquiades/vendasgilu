@@ -1,5 +1,8 @@
 package gilu.model;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,52 +16,52 @@ public class Pedido {
 	private String nome;
 	private int codigo;
 	private int qnt;
-	private String dataEntrega;
-	private String preco;
+	private Date dataEntrega;
+	private BigDecimal preco;
 	
 	public Pedido() {
 		super();
 	}
-	
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public int getCodigo() {
 		return codigo;
 	}
+
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+
 	public int getQnt() {
 		return qnt;
 	}
+
 	public void setQnt(int qnt) {
 		this.qnt = qnt;
 	}
-	public String getDataEntrega() {
+
+	public Date getDataEntrega() {
 		return dataEntrega;
 	}
-	public void setDataEntrega(String dataEntrega) {
+
+	public void setDataEntrega(Date dataEntrega) {
 		this.dataEntrega = dataEntrega;
 	}
-	public String getPreço() {
+
+	public BigDecimal getPreco() {
 		return preco;
 	}
-	public void setPreço(String preco) {
+
+	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
-
-
 
 	@Override
 	public int hashCode() {
@@ -72,8 +75,6 @@ public class Pedido {
 		result = prime * result + qnt;
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -110,5 +111,5 @@ public class Pedido {
 			return false;
 		return true;
 	}
-
+	
 }

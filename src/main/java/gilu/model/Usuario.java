@@ -13,20 +13,23 @@ public class Usuario {
 	private Integer id; 
 	private String senha;
 	private String nome;
-	private String cpf;
+	private Double cpf;
 	private String email;
-	private Carrinho carrinho; 
 	
 	@OneToOne
+	private Carrinho carrinho; 
+	
+	
 	public Carrinho getCarrinho() {
-	return carrinho;
+	
+		return carrinho;
 	}
 
 	public Usuario() {
 		
 	}
 
-	public Usuario(Integer id, String senha, String nome, String cpf, String email) {
+	public Usuario(Integer id, String senha, String nome, Double cpf, String email) {
 		super();
 		this.id = id;
 		this.senha = senha;
@@ -47,10 +50,10 @@ public class Usuario {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getCpf() {
+	public Double getCpf() {
 		return cpf;
 	}
-	public void setCpf(String cpf) {
+	public void setCpf(double cpf) {
 		this.cpf = cpf;
 	}
 	public String getEmail() {
@@ -59,10 +62,12 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((carrinho == null) ? 0 : carrinho.hashCode());
 		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -70,6 +75,7 @@ public class Usuario {
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -79,6 +85,11 @@ public class Usuario {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
+		if (carrinho == null) {
+			if (other.carrinho != null)
+				return false;
+		} else if (!carrinho.equals(other.carrinho))
+			return false;
 		if (cpf == null) {
 			if (other.cpf != null)
 				return false;
@@ -106,4 +117,7 @@ public class Usuario {
 			return false;
 		return true;
 	}
+
+	
+	
 }

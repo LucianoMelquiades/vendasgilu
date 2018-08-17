@@ -3,6 +3,7 @@ package gilu.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class ItemCarrinho {
@@ -12,6 +13,8 @@ public class ItemCarrinho {
 	private Integer id;
     private double valor;
 	private int quantidade;
+	
+	@ManyToOne
 	private Produto produto;
 	
 	
