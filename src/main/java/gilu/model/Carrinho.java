@@ -1,11 +1,12 @@
 package gilu.model;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -16,14 +17,16 @@ public class Carrinho {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	private Date data;
+	private Date dataCompra;
 	private int quantidade;
 	private BigDecimal valor;
+	private Date dataEntrega;
 	
 	@OneToMany
 	private List<ItemCarrinho> itens;
 
-	
+	@Enumerated(EnumType.STRING)
+	private TipoPagamento tipoPagamento;  
 	
 	
 	public Carrinho() {
@@ -36,14 +39,6 @@ public class Carrinho {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	
-	public Date getData() {
-		return data;
-	}
-	
-	public void setData(Date data) {
-		this.data = data;
 	}
 
 	public int getQuantidade() {
@@ -70,20 +65,44 @@ public class Carrinho {
 		this.itens = itens;
 	}
 
+	public Date getDataCompra() {
+		return dataCompra;
+	}
 
+	public void setDataCompra(Date dataCompra) {
+		this.dataCompra = dataCompra;
+	}
 
+	public Date getDataEntrega() {
+		return dataEntrega;
+	}
+
+	public void setDataEntrega(Date dataEntrega) {
+		this.dataEntrega = dataEntrega;
+	}
+
+	public TipoPagamento getTipoPagamento() {
+		return tipoPagamento;
+	}
+
+	public void setTipoPagamento(TipoPagamento tipoPagamento) {
+		this.tipoPagamento = tipoPagamento;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((data == null) ? 0 : data.hashCode());
+		result = prime * result + ((dataCompra == null) ? 0 : dataCompra.hashCode());
+		result = prime * result + ((dataEntrega == null) ? 0 : dataEntrega.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((itens == null) ? 0 : itens.hashCode());
 		result = prime * result + quantidade;
+		result = prime * result + ((tipoPagamento == null) ? 0 : tipoPagamento.hashCode());
 		result = prime * result + ((valor == null) ? 0 : valor.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -93,10 +112,15 @@ public class Carrinho {
 		if (getClass() != obj.getClass())
 			return false;
 		Carrinho other = (Carrinho) obj;
-		if (data == null) {
-			if (other.data != null)
+		if (dataCompra == null) {
+			if (other.dataCompra != null)
 				return false;
-		} else if (!data.equals(other.data))
+		} else if (!dataCompra.equals(other.dataCompra))
+			return false;
+		if (dataEntrega == null) {
+			if (other.dataEntrega != null)
+				return false;
+		} else if (!dataEntrega.equals(other.dataEntrega))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -110,6 +134,8 @@ public class Carrinho {
 			return false;
 		if (quantidade != other.quantidade)
 			return false;
+		if (tipoPagamento != other.tipoPagamento)
+			return false;
 		if (valor == null) {
 			if (other.valor != null)
 				return false;
@@ -117,8 +143,6 @@ public class Carrinho {
 			return false;
 		return true;
 	}
-	
-	
  
 	
 }

@@ -4,8 +4,6 @@ import java.beans.Transient;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -23,19 +21,17 @@ public class Produto {
     @Column(name="preco_produto")
 	private Double preco;
 
-	@Enumerated(EnumType.STRING)
-	private TipoPagamento tipoPagamento;  
+	
 	
 	public Produto() {
 		
 	}
 	
 
-	public Produto(String nome, Double preco, TipoPagamento tipoPagamento) {
+	public Produto(String nome, Double preco) {
 		super();
 		this.nome = nome;
 		this.preco = preco;
-		this.tipoPagamento = tipoPagamento;
 	}
 
 
@@ -63,12 +59,6 @@ public class Produto {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	public TipoPagamento getTipoPagamento() {
-		return tipoPagamento;
-	}
-	public void setTipoPagamento(TipoPagamento tipoPagamento) {
-		this.tipoPagamento = tipoPagamento;
-	}
 
 
 	@Override
@@ -78,7 +68,6 @@ public class Produto {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((preco == null) ? 0 : preco.hashCode());
-		result = prime * result + ((tipoPagamento == null) ? 0 : tipoPagamento.hashCode());
 		return result;
 	}
 
@@ -106,8 +95,6 @@ public class Produto {
 			if (other.preco != null)
 				return false;
 		} else if (!preco.equals(other.preco))
-			return false;
-		if (tipoPagamento != other.tipoPagamento)
 			return false;
 		return true;
 	}
