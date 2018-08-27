@@ -16,28 +16,28 @@ public class App {
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();
 	
-		Produto p = new Produto();
-		p.setNome("Livros");
-		p.setPreco(20d);
+		Produto produto = new Produto();
+		produto.setNome("Livros");
+		produto.setPreco(20d);
 	
-		manager.persist(p);
+		manager.persist(produto);
 		
-		Carrinho c = new Carrinho();
-		c.setDataCompra(new java.util.Date());
-		c.setQuantidade(10);
-		c.setValor(BigDecimal.valueOf(100) );
-		c.setTipoPagamento(TipoPagamento.CARTAO);
+		Carrinho carrinho = new Carrinho();
+		carrinho.setDataCompra(new java.util.Date());
+		carrinho.setQuantidade(10);
+		carrinho.setValor(BigDecimal.valueOf(100) );
+		carrinho.setTipoPagamento(TipoPagamento.CARTAO);
 		
-		manager.persist(c);
+		manager.persist(carrinho);
 		
 		
-		Usuario u = new Usuario();
-		u.setNome("GISELE");
-		u.setCpf(1347522);
-		u.setEmail("Giselelarissa@gmail.com");
-		u.setSenha("1234567890");
+		Usuario usuario = new Usuario();
+		usuario.setNome("GISELE");
+		usuario.setCpf(1347522);
+		usuario.setEmail("Giselelarissa@gmail.com");
+		usuario.setSenha("1234567890");
 		
-		manager.persist(u);
+		manager.persist(usuario);
 		
 	
 	    tx.commit();
