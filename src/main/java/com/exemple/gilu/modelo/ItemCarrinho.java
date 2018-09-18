@@ -1,7 +1,9 @@
-package gilu.model;
+package com.exemple.gilu.modelo;
 
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -9,7 +11,7 @@ import javax.persistence.ManyToOne;
 public class ItemCarrinho {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
     private double valor;
 	private int quantidade;

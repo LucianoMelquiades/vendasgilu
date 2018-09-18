@@ -1,6 +1,8 @@
-package gilu.model;
+package com.exemple.gilu.modelo;
 
 import java.math.BigDecimal;
+
+
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -15,7 +18,7 @@ import javax.persistence.OneToMany;
 public class Carrinho {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	private Date dataCompra;
 	private int quantidade;

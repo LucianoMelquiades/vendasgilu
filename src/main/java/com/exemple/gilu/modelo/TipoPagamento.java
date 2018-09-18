@@ -1,4 +1,4 @@
-package gilu.model;
+package com.exemple.gilu.modelo;
 
 
 public enum TipoPagamento {

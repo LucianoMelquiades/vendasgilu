@@ -1,10 +1,11 @@
-package gilu.model;
+package com.exemple.gilu.modelo;
 
 import java.beans.Transient;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
@@ -12,7 +13,7 @@ import javax.persistence.Id;
 public class Produto {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 
 	@Column(name="nome_produto")

@@ -1,31 +1,27 @@
-package gilu.model;
+package com.exemple.gilu.modelo;
+
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Usuario {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id; 
 	private String senha;
 	private String nome;
 	private Double cpf;
-	private String email;
+	private  String email;
 	
 	@OneToMany
-	private Carrinho carrinho; 
+	private List<Carrinho> carrinhos; 
 	
-	
-	public Carrinho getCarrinho() {
-	
-		return carrinho;
-	}
-
 	public Usuario() {
 		
 	}
@@ -64,11 +60,31 @@ public class Usuario {
 		this.email = email;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public List<Carrinho> getCarrinhos() {
+		return carrinhos;
+	}
+
+	public void setCarrinhos(List<Carrinho> carrinhos) {
+		this.carrinhos = carrinhos;
+	}
+
+	public void setCpf(Double cpf) {
+		this.cpf = cpf;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((carrinho == null) ? 0 : carrinho.hashCode());
+		result = prime * result + ((carrinhos == null) ? 0 : carrinhos.hashCode());
 		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -86,10 +102,10 @@ public class Usuario {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
-		if (carrinho == null) {
-			if (other.carrinho != null)
+		if (carrinhos == null) {
+			if (other.carrinhos != null)
 				return false;
-		} else if (!carrinho.equals(other.carrinho))
+		} else if (!carrinhos.equals(other.carrinhos))
 			return false;
 		if (cpf == null) {
 			if (other.cpf != null)
@@ -118,6 +134,9 @@ public class Usuario {
 			return false;
 		return true;
 	}
+
+	
+
 
 	
 	
