@@ -37,6 +37,15 @@ public class Produto {
 		this.preco = preco;
 		this.categoria = categoria;
 	}
+	
+	
+
+
+	public Produto(String nome, Double preco) {
+		super();
+		this.nome = nome;
+		this.preco = preco;
+	}
 
 
 	@Transient
