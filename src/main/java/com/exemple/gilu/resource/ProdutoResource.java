@@ -17,7 +17,7 @@ import com.exemple.gilu.modelo.Produto;
 import com.exemple.gilu.repositorio.ProdutoRepository;
 
 @RestController
-@RequestMapping("/produto")
+@RequestMapping("produto")
 public class ProdutoResource {
 	
 	@Autowired

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -10,13 +9,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    
-     <table class="table">
+<table class="table">
 			<tr>
 				<th>Id</th>
 				<th>Nome</th>			
 			</tr>
-			<tr th:each="a : ${usuariosList}">
+			<tr th:each="a : ${departamentosList}">
 				<td th:text="${a.id}"></td>
 				<td th:text="${a.nome}"></td>	
 			</tr>

@@ -24,7 +24,7 @@ public class UsuarioController {
 		List<Usuario> usuarios = usuarioRepository.findAll();
 		model.addAttribute("usuariosList", usuarios);
 		
-		return "aluno/list";
+		return "usuario/list";
 	}
 
 }
